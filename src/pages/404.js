@@ -1,54 +1,37 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from 'react';
+import { Link } from 'gatsby';
+import SEO from '../components/seo';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
+    <main className="flex flex-col justify-between min-h-screen px-4 py-8 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 sm:py-10 lg:py-12">
+      <SEO title="Not Found" />
+      <div>
+        <h1 className="text-xl">Page not found</h1>
         <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
+        <p>
+          Sorry{' '}
+          <span role="img" aria-label="Pensive emoji">
+            😔
+          </span>{' '}
+          we couldn’t find what you were looking for.
+          <br />
+          {process.env.NODE_ENV === 'development' ? (
+            <>
+              <br />
+              Try creating a page in <code>src/pages/</code>.
+              <br />
+            </>
+          ) : null}
+          <br />
+          <Link to="/" className="underline">
+            Go home
+          </Link>
+          .
+        </p>
+      </div>
     </main>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
