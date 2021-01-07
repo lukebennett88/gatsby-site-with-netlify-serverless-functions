@@ -45,7 +45,7 @@ function Form({ formName }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
-          formName,
+          'form-name': formName,
           ...formState,
         }),
       }).then(() => navigate(form.getAttribute('action')));
