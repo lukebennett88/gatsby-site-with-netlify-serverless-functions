@@ -59,6 +59,8 @@ function Form({ formName }) {
       action="/success/"
       name={formName}
       onSubmit={handleSubmit}
+      method="POST"
+      data-netlify
       className="grid w-full max-w-2xl gap-4 mx-auto sm:grid-cols-2"
     >
       <Input
