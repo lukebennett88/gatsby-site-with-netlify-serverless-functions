@@ -15,12 +15,22 @@ exports.handler = async function (event) {
     }
   */
 
-  console.log({ formName: event.body.formName });
+  // console.log({ formName: event.body.formName });
   /*
     This will return undefined:
 
     { formName: undefined }
+
+    This is because `event.body` is not an abject
+    it is a string and needs to be parsed as JSON
   */
+
+  console.log({ formName: JSON.parse(event.body).formName });
+  /*
+   This will return undefined:
+
+   { formName: "top" }
+ */
 
   return {
     statusCode: 200,
